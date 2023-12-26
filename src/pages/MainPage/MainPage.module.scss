@@ -1,0 +1,49 @@
+@import "../../styles/var";
+
+.bannerBg {
+  position: relative;
+  background-image: url("../../img/bg.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  @media (min-width: 1921px) {
+    background-size: contain;
+  }
+  &::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    background-image: url("../../img/bg.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    @media (min-width: 1921px) {
+      background-size: contain;
+    }
+  }
+}
+
+:global(body.black) {
+  .bannerBg {
+    background-size: contain;
+    opacity: 1;
+    background: none;
+    background-color: #12121e;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1230px;
+      opacity: 0.3;
+      background-image: url("../../assets/img/MainPage/Banner/bg_b.png");
+      @media (min-width: 1921px) {
+        width: 100%;
+        background: url("../../assets/img/MainPage/Banner/bg_b.png") 0 bottom / cover no-repeat;
+      }
+    }
+  }
+}

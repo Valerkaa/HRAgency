@@ -1,0 +1,201 @@
+@import "../../../styles/var";
+@import "../../../styles/container";
+.whatsItAll {
+  position: relative;
+  .content {
+    position: relative;
+    z-index: 10;
+    max-width: 700px;
+    .title {
+      display: inline-flex;
+    }
+    .subtitle {
+      display: inline-flex;
+      margin: 30px 0 15px 0;
+    }
+    .text {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  .images {
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @media (max-width: $md3+px) {
+      display: none;
+    }
+    img {
+      position: absolute;
+    }
+    .graph {
+      width: 792px;
+      top: 0;
+      right: 0;
+      z-index: 3;
+      @media (max-width: $md1+px) {
+        width: 550px;
+        top: 30px;
+      }
+      @media (max-width: $md2+px) {
+        width: 490px;
+      }
+    }
+    .amazon {
+      z-index: 4;
+      top: 60px;
+      right: 430px;
+      @media (max-width: $md1+px) {
+        right: 280px;
+      }
+      @media (max-width: $md2+px) {
+        right: 240px;
+      }
+    }
+    .tesla {
+      z-index: 6;
+      top: 100px;
+      right: 270px;
+      @media (max-width: $md1+px) {
+        right: 170px;
+      }
+      @media (max-width: $md2+px) {
+        right: 150px;
+      }
+    }
+    .apple {
+      z-index: 5;
+      top: 20px;
+      right: 170px;
+      @media (max-width: $md1+px) {
+        right: 70px;
+      }
+    }
+    .amazon,
+    .tesla,
+    .apple {
+      // width: 181px;
+      border-radius: 24px;
+      border-width: 1.41139px 0px;
+      background: linear-gradient(160.61deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 101.7%);
+      backdrop-filter: blur(9.87977px);
+      box-shadow: 0px 99px 39px rgba(0, 0, 0, 0.01), 0px 55px 33px rgba(0, 0, 0, 0.05),
+      0px 25px 25px rgba(0, 0, 0, 0.09), 0px 6px 14px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+      @media (max-width: $md1+px) {
+        width: 130px;
+      }
+      @media (max-width: $md2+px) {
+        width: 110px;
+      }
+    }
+  }
+  .mob_image {
+    display: none;
+    @media (max-width: $md3+px) {
+      display: flex;
+      margin: 30px auto 0 auto;
+    }
+    @media (max-width: $md4+px) {
+      width: 100%;
+    }
+  }
+}
+:global(body.ar) {
+  .images {
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    @media (max-width: $md3+px) {
+      display: none;
+    }
+    img {
+      position: absolute;
+    }
+    .graph {
+      width: 792px;
+      top: 0;
+      left: 0;
+      right: unset;
+      z-index: 3;
+      @media (max-width: $md1+px) {
+        width: 550px;
+        top: 30px;
+      }
+      @media (max-width: $md2+px) {
+        width: 490px;
+      }
+    }
+    .amazon {
+      z-index: 4;
+      top: 60px;
+      left: 430px;
+      right: unset;
+      @media (max-width: $md1+px) {
+        left: 280px;
+      }
+      @media (max-width: $md2+px) {
+        left: 240px;
+      }
+    }
+    .tesla {
+      z-index: 6;
+      top: 100px;
+      left: 270px;
+      right: unset;
+      @media (max-width: $md1+px) {
+        left: 170px;
+      }
+      @media (max-width: $md2+px) {
+        left: 150px;
+      }
+    }
+    .apple {
+      z-index: 5;
+      top: 20px;
+      left: 170px;
+      right: unset;
+      @media (max-width: $md1+px) {
+        left: 70px;
+      }
+    }
+    .amazon,
+    .tesla,
+    .apple {
+      // width: 181px;
+      border-radius: 24px;
+      border-width: 1.41139px 0px;
+      background: linear-gradient(160.61deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 101.7%);
+      backdrop-filter: blur(9.87977px);
+      box-shadow: 0px 99px 39px rgba(0, 0, 0, 0.01), 0px 55px 33px rgba(0, 0, 0, 0.05),
+      0px 25px 25px rgba(0, 0, 0, 0.09), 0px 6px 14px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+      @media (max-width: $md1+px) {
+        width: 130px;
+      }
+      @media (max-width: $md2+px) {
+        width: 110px;
+      }
+    }
+  }
+}
+:global(body.black) {
+  .title {
+    background: linear-gradient(90.23deg, #f10152 0.23%, #fe91da 35.9%, #c55aee 64.23%);
+    background-clip: text;
+  }
+  .subtitle {
+    background: linear-gradient(90.23deg, #f10152 0.23%, #fe91da 35.9%, #c55aee 64.23%);
+    background-clip: text;
+  }
+  .text {
+    color: #fff;
+  }
+}

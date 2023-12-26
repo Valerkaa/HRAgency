@@ -1,0 +1,90 @@
+@import "../../../styles/var.scss";
+.headerNavLink {
+  display: block !important;
+  font-weight: 500;
+  font-size: 18px;
+  color: #06162d;
+  margin-left: 60px;
+  padding: 4px 0;
+  @media (max-width: $md1+px) {
+    margin-left: 30px;
+  }
+  @media (max-width: $md3+px) {
+    margin: 0 auto 30px auto !important;
+    display: inline-block !important;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+  &.active {
+    position: relative;
+    background: linear-gradient(90deg, #f50756 36.06%, #4b0d71 113.79%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    // &:after {
+    //     content: "";
+    //     display: inline-block;
+    //     left: 0;
+    //     bottom: -4px;
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 2px;
+    //     background-color: #06162d;
+    // }
+  }
+}
+body.black {
+  .headerNavLink {
+    &.active {
+      background: linear-gradient(90.23deg, #f10152 0.23%, #fe91da 35.9%, #fe91da 64.23%) !important;
+      background-clip: text !important;
+    }
+  }
+}
+
+body.ar {
+  .headerNavLink {
+    display: block !important;
+    margin-left: unset;
+    font-weight: 500;
+    font-size: 16px;
+    color: #06162d;
+    margin-right: 60px;
+    padding: 4px 0;
+    @media (max-width: $md1+px) {
+      margin-right: 30px;
+    }
+    @media (max-width: $md3+px) {
+      margin: 0 auto 30px auto !important;
+      display: inline-block !important;
+    }
+
+    &:first-child {
+      margin-right: 0;
+    }
+    &:nth-child(5) {
+      margin-left: 30px;
+    }
+    &.active {
+      position: relative;
+      background: linear-gradient(90deg, #f50756 36.06%, #4b0d71 113.79%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      // &:after {
+      //     content: "";
+      //     display: inline-block;
+      //     left: 0;
+      //     bottom: -4px;
+      //     position: absolute;
+      //     width: 100%;
+      //     height: 2px;
+      //     background-color: #06162d;
+      // }
+    }
+  }
+}
