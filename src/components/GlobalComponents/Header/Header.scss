@@ -23,7 +23,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
     // &:after {
     //     content: "";
     //     display: inline-block;
@@ -39,8 +38,10 @@
 body.black {
   .headerNavLink {
     &.active {
-      background: linear-gradient(90.23deg, #f10152 0.23%, #fe91da 35.9%, #fe91da 64.23%) !important;
-      background-clip: text !important;
+      background: linear-gradient(90deg, #f50756 36.06%, #4b0d71 113.79%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
   }
 }
@@ -74,7 +75,6 @@ body.ar {
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-fill-color: transparent;
       // &:after {
       //     content: "";
       //     display: inline-block;

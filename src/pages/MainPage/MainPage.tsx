@@ -1,14 +1,17 @@
 import React from "react";
-import {Hero} from "../../components/MainPageComp/Hero/Hero";
-import {About} from "../../components/MainPageComp/About/About";
+import {Hero} from "./MainPageComp/Hero/Hero";
+import {About} from "./MainPageComp/About/About";
+import {Slider} from "./MainPageComp/Comments/Slider"
+import {HowWork} from "./MainPageComp/HowWork/HowWork";
+import {ScrollBanner} from "./MainPageComp/ScrollBanner/ScrollBanner";
 
 export function MainPage() {
-    return(
+    return (
         <>
-           <div className="ovf-hidden">
-               <Hero/>
-               <About/>
-           </div>
+            <Hero/>
+            <About/>
+            <HowWork/>
+            <Slider/>
         </>
     )
 }

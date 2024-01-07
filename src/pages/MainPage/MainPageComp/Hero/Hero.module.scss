@@ -1,5 +1,5 @@
-@import "../../../styles/var";
-@import "../../../styles/container";
+@import "../../../../styles/var";
+@import "../../../../styles/container";
 .banner {
   position: relative;
   z-index: 5;
@@ -53,21 +53,21 @@
     pointer-events: none;
     position: absolute;
     z-index: 20;
-    top: 0;
+    top: 50px;
     right: calc(50% - 1232px / 2 - 200px);
-    width: 1232px;
+    width: 800px;
     @media (max-width: $md1+px) {
-      width: 1000px;
+      width: 555px;
       right: calc(50% - 1000px / 2 - 150px);
-      top: 50px;
+      top: 120px;
     }
     @media (max-width: $md2+px) {
-      width: 800px;
+      width: 524px;
       right: calc(50% - 800px / 2 - 200px);
       top: 120px;
     }
     @media (max-width: $md3+px) {
-      width: 600px;
+      width: 410px;
       right: calc(50% - 600px / 2 - 200px);
       top: 200px;
     }
@@ -81,10 +81,10 @@
       right: unset;
       display: flex;
       margin: -80px auto 0 auto;
-      width: 100%;
+      width: 85%;
     }
     @media (max-width: $md6+px) {
-      margin-top: -40px;
+      margin-top: 20px;
     }
   }
 }
@@ -137,7 +137,6 @@
     color: #fff;
   }
   .title {
-    background: linear-gradient(90.23deg, #f10152 0.23%, #fe91da 35.9%, #c55aee 64.23%);
     background-clip: text;
   }
 }

@@ -1,0 +1,327 @@
+@import "../../../../styles/container";
+@import "../../../../styles/var";
+
+:root {
+  --duration: 0.8s;
+  --color-purple: #828dd6;
+  --radius: 150px;
+}
+
+
+// ......
+.comment {
+  padding: 50px 0;
+  @media (max-width: $md3+px) {
+    padding: 0;
+    overflow-x: hidden;
+  }
+}
+
+.sliderWrap {
+  display: grid;
+  margin: 115px auto;
+  grid-template-columns: 10% 1fr 5%;
+  grid-template-rows: 1fr;
+  width: calc(var(--radius) * 2);
+  height: calc(var(--radius) * 2);;
+  @media (max-width: $md3+px) {
+    margin: 135px auto;
+    position: relative;
+  }
+
+  .dashes {
+    width: calc(var(--radius) * 3);
+    margin: -3.5rem;
+    stroke: var(--color-purple);
+    stroke-linecap: round;
+    stroke-width: 0.6;
+    animation: rotate 15s linear infinite;
+    @keyframes rotate {
+      to {
+        transform: rotate(1turn);
+      }
+    }
+    @media (max-width: $md3+px) {
+      width: calc(var(--radius) * 2.5);
+      margin: -2.5rem;
+    }
+  }
+
+  .dashes,
+  .slide {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+  }
+
+  .button.Next {
+    grid-column: -2 / -1;
+    grid-row: 1 / -1;
+    align-self: center;
+  }
+}
+
+.slide {
+  padding: 1rem;
+  position: relative;
+  display: grid;
+  width: calc(var(--radius) * 2);
+  height: calc(var(--radius) * 2);
+
+  grid-template-areas: "layer";
+  place-items: center;
+  --default-animation: fade-in;
+  --name-animation: name-enter;
+  --image-animation: image-enter;
+  --stat-animation: stat-enter;
+  --quote-animation: quote-enter;
+  --delay: var(--duration);
+  @media (max-width: $md3+px) {
+   padding: 0;
+  }
+  > * {
+    grid-area: layer;
+    animation: var(--default-animation) var(--duration) ease-in-out var(--delay) both;
+  }
+
+  .slideName {
+    align-self: end;
+    z-index: 2;
+  }
+
+  &[data-previous] {
+    z-index: 2;
+
+    --default-animation: fade-out;
+    --name-animation: name-exit;
+    --image-animation: image-exit;
+    --stat-animation: stat-exit;
+    --quote-animation: quote-exit;
+    --delay: 0s;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.title {
+  text-align: center;
+}
+
+.titleFlex {
+  display: inline-flex;
+}
+
+.slideName {
+  text-align: center;
+  font-size: 1.5rem;
+  --default-animation: var(--name-animation);
+}
+
+.slideImage {
+  --default-animation: var(--image-animation);
+  width: calc(var(--radius) * 2);
+  height: calc(var(--radius) * 2);
+  object-fit: cover;
+  object-position: 0 -20px;
+  margin-bottom: 30px;
+}
+
+.slide-stat {
+  --default-animation: var(--stat-animation);
+}
+
+.slideQuote {
+  --default-animation: var(--quote-animation);
+}
+
+@keyframes name-enter {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes name-exit {
+  from {
+    transform: none;
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes image-enter {
+  from {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes image-exit {
+  from {
+    transform: none;
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+}
+
+@property --r-offset {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0turn;
+}
+
+@keyframes stat-enter {
+  from {
+    --r-offset: -0.5turn;
+    opacity: 0;
+  }
+}
+
+@keyframes stat-exit {
+  to {
+    --r-offset: -0.3turn;
+    opacity: 0;
+  }
+}
+
+@keyframes quote-enter {
+  from {
+    transform: translate(75%, -150%) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: translate(100%, -200%);
+    opacity: 1;
+  }
+}
+
+@keyframes quote-exit {
+  from {
+    transform: translate(100%, -200%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(75%, -150%) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.slideImage {
+  border-radius: 100vw;
+  box-shadow: 0 0.5rem 2rem #0007;
+}
+
+.slideQuote {
+  position: absolute;
+  top: 170px;
+  left: -500px;
+  --transform: rotate(var(--r)) translate(var(--radius));
+  transform: var(--transform);
+  @media (max-width: $md3+px) {
+    top: 135px;
+    left: -105%;
+  }
+
+}
+
+.slideQuote {
+
+  box-shadow: 0 1rem 2rem #000a;
+  min-width: 24em;
+}
+
+.slide-stat {
+  display: inline-block;
+  color: #fff;
+  max-width: 16em;
+  z-index: 3;
+
+  --d: calc(var(--i) / var(--stats));
+  --r-offset: -0.4turn;
+  --r: calc(var(--r-offset) + (-0.3turn * var(--d)));
+
+  &:last-of-type {
+    --r: calc(var(--r-offset) + 0.45turn);
+  }
+}
+
+.slideQuote {
+  background: linear-gradient(45deg, #23274a, lighten(#23274a, 10%));
+  padding: 1rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  max-width: 12em;
+  --r: 0.9turn;
+}
+
+.stat-label {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  opacity: 0.7;
+  letter-spacing: 0.5ch;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.stat-value {
+  font-size: 2rem;
+}
+
+.button {
+  z-index: 10;
+  text-transform: uppercase;
+  appearance: none;
+  background: white;
+  color: #1b1d3a;
+  font-weight: bold;
+  height: 12vmin;
+  width: 12vmin;
+  border-radius: 50%;
+  border: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  line-height: 1.5;
+  @media (max-width: $md3+px) {
+    height: 27vmin;
+    width: 27vmin;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(25%, 50%);
+  }
+
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+}

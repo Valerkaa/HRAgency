@@ -6,9 +6,6 @@ html {
   color: #2e2e2e;
   font-family: $fontfamily;
   &.lock,
-  &.ovf-hidden {
-    overflow: hidden;
-  }
   &.black {
     color: #fff;
   }
@@ -86,7 +83,6 @@ body.black {
   .font-45,
   .font-40,
   .font-30 {
-    background: linear-gradient(90.23deg, #f10152 0.23%, #fe91da 35.9%, #c55aee 64.23%) !important;
     background-clip: text !important;
   }
 }

@@ -6,6 +6,7 @@ import {GiverPage} from "./pages/GiverPage/GiverPage";
 import {ContactPage} from "./pages/ContactPage/ContactPage";
 import "./styles/_global.scss"
 import {Navigation} from "./components/GlobalComponents/Header/Navigation";
+import {Footer} from "./components/GlobalComponents/Footer/Footer";
 function App() {
   document.body.classList.add('black');
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/employer" element={<GiverPage/>} />
       <Route path="/contact" element={<ContactPage/>} />
     </Routes>
+      <Footer/>
     </>
   );
 }

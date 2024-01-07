@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./About.module.scss"
+import {Cards} from "./Cards";
 
 export function About() {
     return(
@@ -11,6 +12,7 @@ export function About() {
                     </h2>
                     <br/>
                     <h3 className={`${styles.subtitle} font-30`}>За що наші клієнти нас поважають?</h3>
+                    <Cards/>
                 </div>
             </div>
         </section>

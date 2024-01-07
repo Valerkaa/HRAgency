@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Hero.module.scss"
-import whale from "../../../img/whale.png"
+import whale from "../../../../img/whale.png"
 export function Hero() {
     return(
         <section className={styles.banner}>

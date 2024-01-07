@@ -1,11 +1,11 @@
-@import "../../../styles/var";
-@import "../../../styles/container";
+  @import "../../../../styles/var";
+@import "../../../../styles/container";
 .whatsItAll {
   position: relative;
   .content {
     position: relative;
     z-index: 10;
-    max-width: 700px;
+    text-align: center;
     .title {
       display: inline-flex;
     }
@@ -188,12 +188,11 @@
 }
 :global(body.black) {
   .title {
-    background: linear-gradient(90.23deg, #f10152 0.23%, #fe91da 35.9%, #c55aee 64.23%);
     background-clip: text;
   }
   .subtitle {
-    background: linear-gradient(90.23deg, #f10152 0.23%, #fe91da 35.9%, #c55aee 64.23%);
-    background-clip: text;
+
+    -webkit-background-clip:text;
   }
   .text {
     color: #fff;
