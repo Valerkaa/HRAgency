@@ -1,0 +1,103 @@
+.tsparticlesCanv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.formWrap{
+  position: relative;
+  padding: 50px;
+}
+
+
+
+.formSend input[name="phone"]{
+
+    margin-bottom: 10px;
+    width: 100%;
+    height: 50px;
+    border: 1px solid transparent;
+    font-size: 12px;
+    font-weight: 600;
+    caret-color: #ff6600;
+    background: #202020;
+    outline: none;
+    transition: all 0.3s ease;
+
+}
+.formSend input::placeholder{
+  color: #424242;
+}
+
+
+
+
+
+.formSend input {
+  margin-bottom: 10px;
+  padding: 10px 25px;
+  width: 100%;
+  height: 50px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 600;
+  caret-color: #ff6600;
+  background: #202020;
+  outline: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+.formSend .activeGood, .form-send .activeGood:focus {
+  border: 1px solid #5ec849!important;
+  caret-color: #5ec849!important;
+  background: rgba(94,200,73,.1)!important;
+  box-shadow: 0 0 30px rgba(94,200,73,.15)!important;
+}
+.formSend .activeBad, .formSend .activeBad:focus {
+  border: 1px solid #ff0000;
+  caret-color: #ff0000;
+  background: rgba(255,0,0,.1);
+  box-shadow: 0 0 30px rgba(255,0,0,.15);
+}
+.formSend {
+  margin: 25px auto 0;
+  max-width: 400px;
+  position: relative;
+  z-index: 1;
+}
+.sendBtn{
+  margin: 25px 0;
+  padding: 12px 22px;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #ff6600;
+  background: rgba(255,102,0,.3);
+  color: #ffffff;
+  box-shadow: 0 0 50px rgba(255,102,0,.3);
+}
+.formSend button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  cursor: pointer;
+}
+.formSend input:focus {
+  border: 1px solid #ff6600;
+  background: rgba(255,102,0,.1);
+  box-shadow: 0 0 30px rgba(255,102,0,.15);
+}
+@media (min-width: 1024px){
+.formSend {
+  max-width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+}
+  .nameValid {
+    margin-right: 10px;
+  }
+  .nameValid, .lastnameValid {
+    max-width: 345px;
+  }
+}

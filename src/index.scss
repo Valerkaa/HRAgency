@@ -1,2 +1,45 @@
 @import-normalize;
 @import "styles/_null.scss";
+// Custom Tel Input
+.react-tel-input .flag-dropdown{
+  background: transparent!important;
+  border: none!important;
+}
+.react-tel-input .selected-flag:hover, .react-tel-input .selected-flag:focus{
+  background: transparent!important;
+}
+.react-tel-input .country-list{
+  background: #202020!important;
+}
+.react-tel-input .country-list .country:hover{
+  background: #2b2b2b !important;
+}
+.react-tel-input .country-list .country.highlight{
+  background: #2b2b2b !important;
+}
+.react-tel-input .flag-dropdown.open .selected-flag{
+  background: #2b2b2b !important;
+}
+   /* width */
+ ::-webkit-scrollbar {
+   width: 20px;
+ }
+
+/* Track */
+::-webkit-scrollbar-track {
+  border: 1px solid #424242;
+  border-radius: 10px;
+  background: #2b2b2b !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1e1e1e;
+  border-radius: 10px;
+  border: 1px solid #424242;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #424242;
+}
