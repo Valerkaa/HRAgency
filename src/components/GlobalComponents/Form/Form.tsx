@@ -10,7 +10,7 @@ import 'react-phone-input-2/lib/style.css'
 import {useForm} from "react-hook-form";
 import PhoneInput from 'react-phone-input-2'
 
-import {validEmail, validNaming, validPhone} from "./Validation";
+import {validEmail, validNaming, validPhone, validSelect} from "./Validation";
 
 
 
@@ -73,16 +73,18 @@ export function Form(this: any) {
     );
 
     type FormDataValue = {
-        firstName: string,
-        lastName: string,
+        fullName: string,
+        vacancy : string,
         email: string,
-        phone: string
+        phone: string,
+        employment:string,
+        city:string,
     }
-    const {register, handleSubmit, formState: {errors,touchedFields}} = useForm<FormDataValue>();
+    const {register, handleSubmit, formState: {errors}} = useForm<FormDataValue>();
     const onSubmit = (data: any) => {
         console.log(data);
     };
-    // @ts-ignore
+    // console.log(errors)
     return (
         <section className={styles.formWrap}>
             <Particles
@@ -94,14 +96,26 @@ export function Form(this: any) {
 
             <form onSubmit={handleSubmit(onSubmit)} className={styles.formSend}>
 
-                <input type="text" {...register("firstName", {required: true, min: 2})}
-                       className={`${styles.nameValid}`} placeholder="First name" onChange={validNaming} />
-                <input type="text" {...register("lastName", {required: true, min: 2})} name="lastName"
+                <input type="text" {...register("fullName", {required: true, min: 2})}
+                       className={`${styles.nameValid}`} placeholder="First name" onChange={validNaming}/>
+                <input type="text" {...register("vacancy", {required: true, min: 2})}
                        className={styles.lastnameValid} placeholder="Last name" onChange={validNaming}/>
                 <input type="text" className="email-valid" placeholder="Email" {...register("email", {
                     required: true,
                     pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                })} onChange={validEmail} />
+                })} onChange={validEmail}/>
+                <select  {...register("employment", {required: true})} onChange={validSelect}>
+                    <option value="">Вид зайнятості</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Miss">Miss</option>
+                    <option value="Dr">Dr</option>
+                </select>
+                <select {...register("city", {required: true})}>
+                    <option value="">Mr</option>
+                    <option >Mrs</option>
+                    <option >Miss</option>
+                    <option >Dr</option>
+                </select>
                 <PhoneInput
                     onChange={validPhone}
                     inputProps={{
