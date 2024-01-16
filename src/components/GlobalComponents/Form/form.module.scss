@@ -30,8 +30,24 @@
   color: #424242;
 }
 
-
-
+.formSend select{
+  margin-bottom: 10px;
+  padding: 10px 25px;
+  width: 50%;
+  height: 50px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 600;
+  caret-color: #ff6600;
+  background: #202020;
+  outline: none;
+  max-width: 345px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+.formSend select[name="employment"],.formSend select[name="englvl"]{
+  margin-right: 10px;
+}
 
 
 .formSend input {
@@ -76,6 +92,12 @@
   background: rgba(255,102,0,.3);
   color: #ffffff;
   box-shadow: 0 0 50px rgba(255,102,0,.3);
+}
+.sendBtn:disabled{
+    border: 1px solid #ffb078;
+    background: rgba(255, 134, 55, 0.3);
+    color: #ffffff;
+    box-shadow: 0 0 50px rgba(121, 121, 121, 0.3);
 }
 .formSend button {
   margin-left: auto;
