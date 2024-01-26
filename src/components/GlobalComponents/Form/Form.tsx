@@ -7,7 +7,7 @@ import {
 import {loadSlim} from "@tsparticles/slim";
 import styles from "./form.module.scss"
 import 'react-phone-input-2/lib/style.css'
-import {useForm} from "react-hook-form";
+import {Controller, useForm} from "react-hook-form";
 import PhoneInput from 'react-phone-input-2'
 
 import {validEmail, validNaming, validPhone, validSelect} from "./Validation";
@@ -83,13 +83,12 @@ export function Form(this: any) {
         englvl: string,
     }
     // eslint-disable-next-line
-    const {register, handleSubmit, formState: {errors}} = useForm<FormDataValue>();
+    const {register, handleSubmit, control, formState: {errors}} = useForm<FormDataValue>();
     const onSubmit = (data: any) => {
         console.log(data);
     };
-    const onError = () => {
-        console.log(errors)
-    }
+
+    console.log(errors)
     return (
         <section className={styles.formWrap}>
             <Particles
@@ -102,21 +101,26 @@ export function Form(this: any) {
             <form onSubmit={handleSubmit(onSubmit)} className={styles.formSend}>
 
                 <input type="text" {...register("fullName", {required: true, min: 2})}
-                       className={`${styles.nameValid}`} placeholder="First name" onChange={validNaming}/>
+                       className={`${styles.nameValid} ${errors.fullName ? styles.activeInvalid : ""}`}
+                       placeholder="First name" onChange={validNaming}/>
                 <input type="text" {...register("vacancy", {required: true, min: 2})}
-                       className={styles.lastnameValid} placeholder="Last name" onChange={validNaming}/>
-                <input type="text" className="email-valid" placeholder="Email" {...register("email", {
+                       className={`${styles.lastnameValid} ${errors.vacancy ? styles.activeInvalid : ""}`}
+                       placeholder="Last name" onChange={validNaming}/>
+                <input type="text" className={`${errors.email ? styles.activeInvalid : ""}`}
+                       placeholder="Email" {...register("email", {
                     required: true,
                     // eslint-disable-next-line
                     pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                 })} onChange={validEmail}/>
-                <select  {...register("employment", {required: true})} onChange={validSelect}>
+                <select  {...register("employment", {required: true})}
+                         className={`${errors.employment ? styles.activeInvalid : ""}`} onChange={validSelect}>
                     <option value="">Вид зайнятості</option>
                     <option value="Повна">Повна</option>
                     <option value="Неповна">Неповна</option>
                     <option value="Відалено">Відалено</option>
                 </select>
-                <select {...register("city", {required: true})} onChange={validSelect}>
+                <select {...register("city", {required: true})} className={`${errors.city ? styles.activeInvalid : ""}`}
+                        onChange={validSelect}>
                     <option value="">Місто</option>
                     <option value="Усі">Усі</option>
                     <option value="Київ">Київ</option>
@@ -136,7 +140,8 @@ export function Form(this: any) {
                     <option value="Чернівці">Чернівці</option>
                     <option value="Ужгород">Ужгород</option>
                 </select>
-                <select  {...register("englvl", {required: true})} onChange={validSelect}>
+                <select  {...register("englvl", {required: true})}
+                         className={`${errors.englvl ? styles.activeInvalid : ""}`} onChange={validSelect}>
                     <option value="">Рівень англійської:</option>
                     <option value="Елементарний">Елементарний</option>
                     <option value="Нижчий за середній">Нижчий за середній</option>
@@ -145,7 +150,8 @@ export function Form(this: any) {
                     <option value="Просунутий">Просунутий</option>
                     <option value="Вільний рівень">Вільний рівень</option>
                 </select>
-                <select  {...register("experience", {required: true})} onChange={validSelect}>
+                <select  {...register("experience", {required: true})}
+                         className={`${errors.experience ? styles.activeInvalid : ""}`} onChange={validSelect}>
                     <option value="">Досвід роботи:</option>
                     <option value="Будь-який досвід роботи">Будь-який досвід роботи</option>
                     <option value="Менше 1 року">Менше 1 року</option>
@@ -154,17 +160,27 @@ export function Form(this: any) {
                     <option value="3-5 років">3-5 років</option>
                     <option value="Понад 5 років">Понад 5 років</option>
                 </select>
-                <PhoneInput
-                    onChange={validPhone}
-                    inputProps={{
-                        name: 'phone',
-                        required: true,
-                    }}
-                    onlyCountries={['ua']}
-                    placeholder="Введіть номер телефона"
-                    country={'ua'}
+                <Controller
+                    name="phone"
+                    control={control}
+                    rules={{required: true}}
+                    render={({field: { value}}) => (
+                        <PhoneInput
+                            inputProps={{
+                                id: "phone",
+                                className: `${errors.phone ? styles.activeInvalid : ""} form-control`,
+
+                            }}
+                            value={value}
+                            onChange={validPhone}
+                            onlyCountries={['ua']}
+                            placeholder="Введіть номер телефона"
+                            country={'ua'}
+                        />
+                    )}
                 />
-                <button type="submit" onClick={onError} className={styles.sendBtn}>Submit a request</button>
+
+                <button type="submit" className={styles.sendBtn}>Submit a request</button>
             </form>
         </section>
     )

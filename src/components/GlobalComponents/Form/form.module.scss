@@ -51,30 +51,30 @@
 
 
 .formSend input {
-  margin-bottom: 10px;
+  margin-bottom: 10px!important;
   padding: 10px 25px;
-  width: 100%;
-  height: 50px;
-  border: 1px solid transparent;
-  font-size: 12px;
-  font-weight: 600;
-  caret-color: #ff6600;
-  background: #202020;
-  outline: none;
-  color: #ffffff;
-  transition: all 0.3s ease;
+  width: 100%!important;
+  height: 50px!important;
+  border: 1px solid transparent!important;
+  font-size: 12px!important;
+  font-weight: 600!important;
+  caret-color: #ff6600!important;
+  background: #202020!important;
+  outline: none!important;
+  color: #ffffff!important;
+  transition: all 0.3s ease!important;
 }
-.formSend .activeGood, .form-send .activeGood:focus {
+.formSend .activeValid, .form-send .activeValid:focus {
   border: 1px solid #5ec849!important;
   caret-color: #5ec849!important;
   background: rgba(94,200,73,.1)!important;
   box-shadow: 0 0 30px rgba(94,200,73,.15)!important;
 }
-.formSend .activeBad, .formSend .activeBad:focus {
-  border: 1px solid #ff0000;
-  caret-color: #ff0000;
-  background: rgba(255,0,0,.1);
-  box-shadow: 0 0 30px rgba(255,0,0,.15);
+.formSend .activeInvalid, .formSend .activeInvalid:focus {
+  border: 1px solid #ff0000!important;
+  caret-color: #ff0000!important;
+  background: rgba(255,0,0,.1)!important;
+  box-shadow: 0 0 30px rgba(255,0,0,.15)!important;
 }
 .formSend {
   margin: 25px auto 0;

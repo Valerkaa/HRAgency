@@ -3,13 +3,12 @@ import styles from "./form.module.scss";
 
 // @ts-ignore
 const setValidClass = (event) => {
-    event.target.classList.add(`${styles.activeBad}`)
-    event.target.classList.remove(`${styles.activeGood}`)
-    console.log(event.target.value.length)
+    event.target.classList.add(`${styles.activeValid}`)
+    event.target.classList.remove(`${styles.activeInvalid}`)
 }
 const setInvalidClass = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
-    event.target.classList.add(`${styles.activeBad}`)
-    event.target.classList.remove(`${styles.activeGood}`)
+    event.target.classList.add(`${styles.activeInvalid}`)
+    event.target.classList.remove(`${styles.activeValid}`)
 }
 
 export function validNaming(event: ChangeEvent<HTMLInputElement>) {
