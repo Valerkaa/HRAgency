@@ -30,7 +30,8 @@ export function validEmail(event: ChangeEvent<HTMLInputElement>) {
     setInvalidClass(event)
 }
 
-export function validPhone(value: string, data: {}, event: ChangeEvent<HTMLInputElement>) {
+export function validPhone(value: string, data: {}, event: ChangeEvent<HTMLInputElement>, setValue: any) {
+    setValue('phone', value);
     let pattern = /^\+?3?8?(0\d{9})$/;
     if (pattern.test(value)) {
         setValidClass(event)

@@ -21,8 +21,8 @@ export function Footer() {
                               to="/employer" onClick={() => activeLinkF('/employer')}>Для роботодавця</Link>
                         <Link className={`headerNavLink ${activeLink === '/worker' && "active"}`}
                               to="/worker" onClick={() => activeLinkF('/worker')}>Для шукача</Link>
-                        <Link className={`headerNavLink ${activeLink === '/contact' && "active"}`}
-                              to="/contact" onClick={() => activeLinkF('/contact')}>Контакти</Link>
+                        {/*<Link className={`headerNavLink ${activeLink === '/contact' && "active"}`}*/}
+                        {/*      to="/contact" onClick={() => activeLinkF('/contact')}>Контакти</Link>*/}
                     </div>
                     <div className={styles.about}>
                         <p>Ви можете зв'язатися з нами в будь-який час, наша команда завжди на зв'язку!</p>

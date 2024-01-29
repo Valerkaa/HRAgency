@@ -5,11 +5,73 @@
   bottom: 0;
   right: 0;
 }
+
+
+option{
+  background: #202020!important;
+}
+option:hover{
+  background: #2b2b2b !important;
+}
+option{
+  background: #2b2b2b !important;
+}
+option{
+  background: #2b2b2b !important;
+}
 .formWrap{
   position: relative;
   padding: 50px;
+  height: 65vh;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000099;
+}
+.modaltext{
+  color: white;
+  font-size: 21px;
+}
+.modalmain {
+  position: fixed;
+  background: #202020;
+  border: 1px solid #491674;
+  box-shadow: 0 0 50px rgba(73, 22, 116, 0.3);
+  padding: 40px;
+  height: auto;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
 }
 
+.btn{
+  margin: 25px 0;
+  padding: 12px 22px;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #491674;
+  background: rgba(73, 22, 116, 0.3);
+  box-shadow: 0 0 20px rgba(73, 22, 116, 0.6);
+  color: #ffffff;
+}
+
+.modal.displayblock {
+  display: block;
+}
+
+.modal.displaynone {
+  display: none;
+}
 
 
 .formSend input[name="phone"]{
@@ -17,15 +79,15 @@
     margin-bottom: 10px;
     width: 100%;
     height: 50px;
-    border: 1px solid transparent;
     font-size: 12px;
     font-weight: 600;
-    caret-color: #ff6600;
+    caret-color: #491674;
     background: #202020;
     outline: none;
     transition: all 0.3s ease;
 
 }
+
 .formSend input::placeholder{
   color: #424242;
 }
@@ -38,7 +100,7 @@
   border: 1px solid transparent;
   font-size: 12px;
   font-weight: 600;
-  caret-color: #ff6600;
+  caret-color: #491674;
   background: #202020;
   outline: none;
   max-width: 345px;
@@ -58,19 +120,19 @@
   border: 1px solid transparent!important;
   font-size: 12px!important;
   font-weight: 600!important;
-  caret-color: #ff6600!important;
+  caret-color: #491674!important;
   background: #202020!important;
   outline: none!important;
   color: #ffffff!important;
   transition: all 0.3s ease!important;
 }
-.formSend .activeValid, .form-send .activeValid:focus {
+.formWrap .formSend .activeValid, .formWrap .form-send .activeValid:focus {
   border: 1px solid #5ec849!important;
   caret-color: #5ec849!important;
   background: rgba(94,200,73,.1)!important;
   box-shadow: 0 0 30px rgba(94,200,73,.15)!important;
 }
-.formSend .activeInvalid, .formSend .activeInvalid:focus {
+.formWrap  .formSend .activeInvalid, .formWrap  .formSend .activeInvalid:focus {
   border: 1px solid #ff0000!important;
   caret-color: #ff0000!important;
   background: rgba(255,0,0,.1)!important;
@@ -88,10 +150,10 @@
   width: fit-content;
   font-size: 14px;
   font-weight: 600;
-  border: 1px solid #ff6600;
-  background: rgba(255,102,0,.3);
+  border: 1px solid #491674;
+  background: rgba(73, 22, 116, 0.3);
   color: #ffffff;
-  box-shadow: 0 0 50px rgba(255,102,0,.3);
+  box-shadow: 0 0 50px rgba(73, 22, 116, 0.6);
 }
 .sendBtn:disabled{
     border: 1px solid #ffb078;
@@ -105,10 +167,12 @@
   display: block;
   cursor: pointer;
 }
+
 .formSend input:focus {
-  border: 1px solid #ff6600;
-  background: rgba(255,102,0,.1);
-  box-shadow: 0 0 30px rgba(255,102,0,.15);
+  border: 1px solid #491674!important;
+  caret-color: #491674!important;
+  background: rgba(73, 22, 116, 0.15) !important ;
+  box-shadow: 0 0 30px rgba(73, 22, 116, 0.15) !important;
 }
 @media (min-width: 1024px){
 .formSend {

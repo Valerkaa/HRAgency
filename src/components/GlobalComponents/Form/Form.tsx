@@ -11,6 +11,10 @@ import {Controller, useForm} from "react-hook-form";
 import PhoneInput from 'react-phone-input-2'
 
 import {validEmail, validNaming, validPhone, validSelect} from "./Validation";
+import sendTelegramNotification from "../../../api/telegramApi";
+import Modal from "./modal";
+import {Simulate} from "react-dom/test-utils";
+import reset = Simulate.reset;
 
 
 export function Form(this: any) {
@@ -83,11 +87,17 @@ export function Form(this: any) {
         englvl: string,
     }
     // eslint-disable-next-line
-    const {register, handleSubmit, control, formState: {errors}} = useForm<FormDataValue>();
+    const {register, handleSubmit, control, formState: {errors},reset, setValue} = useForm<FormDataValue>();
     const onSubmit = (data: any) => {
         console.log(data);
+        toggleModal()
+        sendTelegramNotification(data)
+        reset()
     };
-
+    const [showModal, setShowModal] = useState<boolean>(false);
+    function toggleModal() {
+        setShowModal(!showModal);
+    }
     console.log(errors)
     return (
         <section className={styles.formWrap}>
@@ -97,7 +107,11 @@ export function Form(this: any) {
                 particlesLoaded={particlesLoaded}
                 options={options}
             />
-
+            <Modal open={showModal} onClose={toggleModal}>
+                <div className={styles.modaltext}>
+                    Ваша заявка успішно зареєстрована!✅
+                </div>
+            </Modal>
             <form onSubmit={handleSubmit(onSubmit)} className={styles.formSend}>
 
                 <input type="text" {...register("fullName", {required: true, min: 2})}
@@ -168,11 +182,12 @@ export function Form(this: any) {
                         <PhoneInput
                             inputProps={{
                                 id: "phone",
+                                name:"phone",
                                 className: `${errors.phone ? styles.activeInvalid : ""} form-control`,
 
                             }}
                             value={value}
-                            onChange={validPhone}
+                            onChange={(value, data, input) => validPhone(value, data, input, setValue)}
                             onlyCountries={['ua']}
                             placeholder="Введіть номер телефона"
                             country={'ua'}

@@ -31,8 +31,8 @@ export function Navigation() {
                                           to="/employer" onClick={() => activeLinkF('/employer')}>Для роботодавця</Link>
                                     <Link className={`headerNavLink ${activeLink === '/worker' && "active"}`}
                                           to="/worker" onClick={() => activeLinkF('/worker')}>Для шукача</Link>
-                                    <Link className={`headerNavLink ${activeLink === '/contact' && "active"}`}
-                                          to="/contact" onClick={() => activeLinkF('/contact')}>Контакти</Link>
+                                    {/*<Link className={`headerNavLink ${activeLink === '/contact' && "active"}`}*/}
+                                    {/*      to="/contact" onClick={() => activeLinkF('/contact')}>Контакти</Link>*/}
                                 </div>
                             </div>
                         </div>
