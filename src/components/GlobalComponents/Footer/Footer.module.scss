@@ -9,7 +9,7 @@
   color: #2e2e2e;
   .content {
     display: grid;
-    grid-template-columns: 927px 1fr 326px;
+    grid-template-columns: 927px 1fr;
     gap: 100px;
     @media (max-width: $md1+px) {
       grid-template-columns: 700px 1fr 300px;
