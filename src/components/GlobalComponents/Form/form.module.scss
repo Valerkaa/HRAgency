@@ -187,3 +187,11 @@ option{
     max-width: 345px;
   }
 }
+@media (max-width: 753px){
+  .formSend select{
+    width: 100%;
+  }
+  .formWrap{
+    height: 100vh;
+  }
+}
